@@ -1,0 +1,13 @@
+Make a class Bureaucrat.
+A Bureaucrat must have:
+•A constant name.
+•And a grade that ranges from 1 (highest possible grade) to 150 (lowest possible
+grade).
+Any attempt to instantiate a Bureaucrat using an invalid grade must throw an ex-
+ception:
+either a Bureaucrat::GradeTooHighException or a Bureaucrat::GradeTooLowException.
+You will provide getters for both these attributes: getName() and getGrade(). Implement also two member functions to increment or decrement the bureaucrat grade. If
+the grade is out of range, both of them will throw the same exceptions as the constructor.
+You will implement an overload of the insertion («) operator to print something like
+(without the angle brackets):
+<name>, bureaucrat grade <grade>.
