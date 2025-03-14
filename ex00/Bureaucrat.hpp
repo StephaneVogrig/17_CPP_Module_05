@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:59:18 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/13 01:17:33 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/14 21:02:21 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ class Bureaucrat
 
 		void				setGrade(int grade);
 		
-		void incrementGrade(void);
-		void decrementGrade(void);
+		void				incrementGrade(void);
+		void				decrementGrade(void);
 
 		class GradeTooHighException : public std::exception
 		{
