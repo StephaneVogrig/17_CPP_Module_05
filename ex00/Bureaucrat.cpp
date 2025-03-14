@@ -11,16 +11,14 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "utils.hpp"
 
 /* constructor ---------------------------------------------------------------*/
 
 Bureaucrat::Bureaucrat(const std::string & name, int grade)
-			: _name(name), _grade(grade)
+			: _name(name)
 {
-	if (_grade < 1)
-		throw (Bureaucrat::GradeTooHighException());
-	if (_grade > 150)
-		throw (Bureaucrat::GradeTooLowException());
+	setGrade(grade);
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat & toCopy)
@@ -50,7 +48,7 @@ std::ostream & operator << (std::ostream & os, const Bureaucrat & bureaucrat)
 	return (os);
 }
 
-/* getter --------------------------------------------------------------------*/
+/* accessor ------------------------------------------------------------------*/
 
 const std::string & Bureaucrat::getName(void) const
 {
@@ -62,30 +60,35 @@ int Bureaucrat::getGrade(void) const
 	return (_grade);
 }
 
+void Bureaucrat::setGrade(int grade)
+{
+	if (grade < 1)
+		throw (Bureaucrat::GradeTooHighException());
+	if (grade > 150)
+		throw (Bureaucrat::GradeTooLowException());
+	_grade = grade;
+}
+
 /* utilities -----------------------------------------------------------------*/
 
 void Bureaucrat::incrementGrade(void)
 {
-	if (_grade == 1)
-		throw (Bureaucrat::GradeTooHighException());
-	_grade--;
+	setGrade(_grade - 1);
 }
 
 void Bureaucrat::decrementGrade(void)
 {
-	if (_grade == 150)
-		throw (Bureaucrat::GradeTooLowException());
-	_grade++;
+	setGrade(_grade + 1);
 }
 
 /* exceptions ----------------------------------------------------------------*/
 
 const char * Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("grade is too high");
+	return (RED "grade is too high" RESET);
 }
 
 const char * Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("grade is too low");
+	return (RED "grade is too low" RESET);
 }

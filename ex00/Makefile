@@ -6,27 +6,29 @@
 #    By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/22 03:03:35 by svogrig           #+#    #+#              #
-#    Updated: 2025/03/05 17:52:28 by svogrig          ###   ########.fr        #
+#    Updated: 2025/03/14 00:23:55 by svogrig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	?=	bureaucrat
+NAME		?=	bureaucrat
 
 # sources ---------------------------------------------------------------------#
 
-SRC 	?=	main.cpp
+SRC 		?=	main.cpp \
+				Bureaucrat.cpp \
+				utils.cpp
 
 # objects ---------------------------------------------------------------------#
 
-OBJ_DIR	:=	.build/
-OBJ		:=	$(SRC:%.cpp=$(OBJ_DIR)%.o)
+OBJ_DIR		:=	.build/
+OBJ			:=	$(SRC:%.cpp=$(OBJ_DIR)%.o)
 
-DEPS	:=	$(OBJ:.o=.d)
+DEPS		:=	$(OBJ:.o=.d)
 
 # compilation -----------------------------------------------------------------#
 
-CC		:=	c++
-CFLAGS	:=	-Wall -Wextra -Werror -std=c++98 -g
+CXX			:=	c++
+CXXFLAGS	:=	-Wall -Wextra -Werror -std=c++98 -g
 
 #------------------------------------------------------------------------------#
 # rules                                                                        #
@@ -43,7 +45,7 @@ fclean: clean
 re: fclean all
 
 test:
-	rm $(NAME)
+	test -f "$(NAME)" && rm $(NAME)
 	@$(MAKE) -j all --no-print-directory
 	./$(NAME)
 	
@@ -54,7 +56,7 @@ test:
 
 $(OBJ_DIR)%.o: %.cpp
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -MMD -c $< -o $@
+	@$(CXX) $(CXXFLAGS) -MMD -c $< -o $@
 	@echo "compiled $<"
 
 -include $(DEPS)
@@ -64,7 +66,7 @@ $(OBJ_DIR)%.o: %.cpp
 #------------------------------------------------------------------------------#
 
 $(NAME): $(OBJ)
-	@$(CC) $(OBJ) -o $(NAME)
+	@$(CXX) $(OBJ) -o $(NAME)
 	@echo "created $(NAME)"
 
 #------------------------------------------------------------------------------#

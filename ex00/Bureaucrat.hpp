@@ -28,7 +28,9 @@ class Bureaucrat
 		Bureaucrat & operator = (const Bureaucrat & toAssign);
 
 		const std::string &	getName(void) const;
-		int				getGrade(void) const;
+		int					getGrade(void) const;
+
+		void				setGrade(int grade);
 		
 		void incrementGrade(void);
 		void decrementGrade(void);
@@ -47,7 +49,7 @@ class Bureaucrat
 
 	private:
 		const std::string	_name;
-		int					_grade;
+		unsigned int		_grade;
 
 };
 
