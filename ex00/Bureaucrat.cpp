@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 18:47:50 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/13 01:31:34 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/14 22:04:43 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,49 +23,47 @@ Bureaucrat::Bureaucrat(const std::string & name, int grade)
 
 Bureaucrat::Bureaucrat(const Bureaucrat & toCopy)
 			: _name(toCopy._name), _grade(toCopy._grade)
-{
-}
+{}
 
 /* destructor ----------------------------------------------------------------*/
 
 Bureaucrat::~Bureaucrat(void)
-{
-}
+{}
 
 /* operator ------------------------------------------------------------------*/
 
 Bureaucrat & Bureaucrat::operator = (const Bureaucrat & toAssign)
 {
 	if (this == &toAssign)
-		return (*this);
+		return *this;
 	_grade = toAssign._grade;
-	return (*this);
+	return *this;
 }
 
 std::ostream & operator << (std::ostream & os, const Bureaucrat & bureaucrat)
 {
 	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
-	return (os);
+	return os;
 }
 
 /* accessor ------------------------------------------------------------------*/
 
 const std::string & Bureaucrat::getName(void) const
 {
-	return (_name);
+	return _name;
 }
 
 int Bureaucrat::getGrade(void) const
 {
-	return (_grade);
+	return _grade;
 }
 
 void Bureaucrat::setGrade(int grade)
 {
 	if (grade < 1)
-		throw (Bureaucrat::GradeTooHighException());
+		throw (GradeTooHighException());
 	if (grade > 150)
-		throw (Bureaucrat::GradeTooLowException());
+		throw (GradeTooLowException());
 	_grade = grade;
 }
 
@@ -85,10 +83,10 @@ void Bureaucrat::decrementGrade(void)
 
 const char * Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return (RED "grade is too high" RESET);
+	return RED "grade is too high" RESET;
 }
 
 const char * Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return (RED "grade is too low" RESET);
+	return RED "grade is too low" RESET;
 }
