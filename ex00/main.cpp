@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:25 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/14 00:20:57 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/14 23:22:03 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void test_constructor(int grade)
 		std::cout << e.what() << std::endl;
 	}
 }
+
 int main()
 {
 	displaySection("test Bureaucrat");
