@@ -6,7 +6,7 @@
 #    By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/22 03:03:35 by svogrig           #+#    #+#              #
-#    Updated: 2025/03/14 00:23:55 by svogrig          ###   ########.fr        #
+#    Updated: 2025/03/15 20:03:03 by svogrig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,10 +45,9 @@ fclean: clean
 re: fclean all
 
 test:
-	test -f "$(NAME)" && rm $(NAME)
 	@$(MAKE) -j all --no-print-directory
 	./$(NAME)
-	
+	@rm $(NAME)
 
 #------------------------------------------------------------------------------#
 # compilation                                                                  #
