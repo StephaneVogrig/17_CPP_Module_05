@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:25 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/16 14:27:11 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/17 00:14:40 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,22 +105,29 @@ void test_form(void)
 void test_signForm(void)
 {
 	displaySubtest("test signForm");
-	Bureaucrat bur150("newbie", 150);
-	std::cout << PURPLE "create " RESET << bur150 << std::endl;
+	{
+		Bureaucrat bur150("newbie", 150);
+		std::cout << PURPLE "create bureaucrat " RESET << bur150 << std::endl;
+		Form form150("cerfa150", 150, 150);
+		std::cout << PURPLE "create form " RESET << form150 << std::endl;
+		Form form1("cerfa1", 1, 150);
+		std::cout << PURPLE "create form " RESET << form1 << std::endl;
+		std::cout << std::endl;
+
+		bur150.signForm(form150);
+		std::cout << form150 << std::endl;
+		std::cout << std::endl;
+
+		bur150.signForm(form1);
+		std::cout << form1 << std::endl;
+		std::cout << std::endl;
+	}
 	Bureaucrat bur1("senior", 1);
-	std::cout << PURPLE "create " RESET << bur150 << std::endl;
-	Form form150("cerfa grade 150", 150, 150);
-	std::cout << PURPLE "create " RESET << form150 << std::endl;
-	Form form1("cerfa grade 1", 1, 150);
-	std::cout << PURPLE "create " RESET << form1 << std::endl;
-	std::cout << std::endl;
-
-	bur150.signForm(form150);
-	std::cout << form150 << std::endl;
-	std::cout << std::endl;
-
-	bur150.signForm(form1);
-	std::cout << form1 << std::endl;
+	std::cout << PURPLE "create bureaucrat " RESET << bur1 << std::endl;
+	Form form150("cerfa150", 150, 150);
+	std::cout << PURPLE "create form " RESET << form150 << std::endl;
+	Form form1("cerfa1", 1, 150);
+	std::cout << PURPLE "create form " RESET << form1 << std::endl;
 	std::cout << std::endl;
 
 	bur1.signForm(form150);

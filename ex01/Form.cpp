@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 21:17:31 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/16 17:09:38 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/16 23:48:51 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,7 @@ Form & Form::operator = (const Form & toAssign)
 {
 	if (this == &toAssign)
 		return (*this);
-	_name = toAssign._name;
 	_isSigned = toAssign._isSigned;
-	_gradeToSign = toAssign._gradeToSign;
-	_gradeToExecute = toAssign._gradeToExecute;
 	return *this;
 }
 

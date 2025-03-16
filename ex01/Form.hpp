@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 21:05:46 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/16 16:22:22 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/16 17:15:36 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ class Form
 
 	private:
 
-		std::string _name;
-		bool		_isSigned;
-		int			_gradeToSign;
-		int			_gradeToExecute;
+		const std::string	_name;
+		bool				_isSigned;
+		const int			_gradeToSign;
+		const int			_gradeToExecute;
 
 		void checkGrade(int grade);
 
