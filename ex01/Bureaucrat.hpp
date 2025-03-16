@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:59:18 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/16 14:26:25 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/16 16:20:49 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,16 @@ class Bureaucrat
 
 		void				signForm(Form & form) const;
 
-		class GradeTooHighException : public std::exception
+		class GradeTooHighException : public std::range_error
 		{
 			public:
-				const char * what() const throw();
+				GradeTooHighException();
 		};
 
-		class GradeTooLowException : public std::exception
+		class GradeTooLowException : public std::range_error
 		{
 			public:
-				const char * what() const throw();
+				GradeTooLowException();
 		};
 
 	private:

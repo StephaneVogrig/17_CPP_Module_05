@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 21:17:31 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/16 01:05:16 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/16 17:09:38 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,10 @@ void Form::checkGrade(int grade)
 
 /* exceptions ----------------------------------------------------------------*/
 
-const char * Form::GradeTooHighException::what() const throw()
-{
-	return RED "grade is too high" RESET;
-}
+Form::GradeTooHighException::GradeTooHighException()
+			: range_error(RED "grade is too high" RESET)
+{}
 
-const char * Form::GradeTooLowException::what() const throw()
-{
-	return RED "grade is too low" RESET;
-}
+Form::GradeTooLowException::GradeTooLowException()
+			: range_error(RED "grade is too low" RESET)
+{}

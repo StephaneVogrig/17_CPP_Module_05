@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 18:47:50 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/15 20:21:16 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/16 17:09:13 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void Bureaucrat::signForm(Form & form) const
 		std::cout	<< getName() << YELLOW " signed " RESET
 					<< form.getName() << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(const std::range_error& e)
 	{
 		std::cerr	<< getName() << YELLOW " couldn’t sign " RESET
 					<< form.getName() << YELLOW " because " RESET
@@ -98,12 +98,10 @@ void Bureaucrat::signForm(Form & form) const
 
 /* exceptions ----------------------------------------------------------------*/
 
-const char * Bureaucrat::GradeTooHighException::what() const throw()
-{
-	return RED "grade is too high" RESET;
-}
+Bureaucrat::GradeTooHighException::GradeTooHighException()
+			: range_error(RED "grade is too high" RESET)
+{}
 
-const char * Bureaucrat::GradeTooLowException::what() const throw()
-{
-	return RED "grade is too low" RESET;
-}
+Bureaucrat::GradeTooLowException::GradeTooLowException()
+			: range_error(RED "grade is too low" RESET)
+{}

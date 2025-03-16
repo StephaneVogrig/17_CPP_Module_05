@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 18:47:50 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/14 22:04:43 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/16 17:10:57 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,10 @@ void Bureaucrat::decrementGrade(void)
 
 /* exceptions ----------------------------------------------------------------*/
 
-const char * Bureaucrat::GradeTooHighException::what() const throw()
-{
-	return RED "grade is too high" RESET;
-}
+Bureaucrat::GradeTooHighException::GradeTooHighException()
+			: range_error(RED "grade is too high" RESET)
+{}
 
-const char * Bureaucrat::GradeTooLowException::what() const throw()
-{
-	return RED "grade is too low" RESET;
-}
+Bureaucrat::GradeTooLowException::GradeTooLowException()
+			: range_error(RED "grade is too low" RESET)
+{}

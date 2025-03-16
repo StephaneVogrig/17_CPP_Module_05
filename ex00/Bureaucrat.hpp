@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:59:18 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/14 23:18:22 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/16 17:10:34 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,16 @@ class Bureaucrat
 		void				incrementGrade(void);
 		void				decrementGrade(void);
 
-		class GradeTooHighException : public std::exception
+		class GradeTooHighException : public std::range_error
 		{
 			public:
-				const char * what() const throw();
+				GradeTooHighException();
 		};
 
-		class GradeTooLowException : public std::exception
+		class GradeTooLowException : public std::range_error
 		{
 			public:
-				const char * what() const throw();
+				GradeTooLowException();
 		};
 
 	private:
