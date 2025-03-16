@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 18:47:50 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/14 22:04:43 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/15 20:21:16 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,23 @@ void Bureaucrat::incrementGrade(void)
 void Bureaucrat::decrementGrade(void)
 {
 	setGrade(_grade + 1);
+}
+
+void Bureaucrat::signForm(Form & form) const
+{
+	(void)form;
+	try
+	{
+		form.beSigned(*this);
+		std::cout	<< getName() << YELLOW " signed " RESET
+					<< form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr	<< getName() << YELLOW " couldn’t sign " RESET
+					<< form.getName() << YELLOW " because " RESET
+					<< e.what() << '\n';
+	}
 }
 
 /* exceptions ----------------------------------------------------------------*/

@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:25 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/14 23:19:39 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/16 14:27:11 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void test_constructor_form(int gradeToSign, int gradeToExecute)
 	displaySubtest(ss.str());
 	try
 	{
-		Form test = Form("cerfa 2076", false, gradeToSign, gradeToExecute);
+		Form test = Form("cerfa 2076", gradeToSign, gradeToExecute);
 		std::cout << test << std::endl;
 	}
 	catch (const std::exception & e)
@@ -102,10 +102,39 @@ void test_form(void)
 	test_constructor_form(160, 80);
 }
 
+void test_signForm(void)
+{
+	displaySubtest("test signForm");
+	Bureaucrat bur150("newbie", 150);
+	std::cout << PURPLE "create " RESET << bur150 << std::endl;
+	Bureaucrat bur1("senior", 1);
+	std::cout << PURPLE "create " RESET << bur150 << std::endl;
+	Form form150("cerfa grade 150", 150, 150);
+	std::cout << PURPLE "create " RESET << form150 << std::endl;
+	Form form1("cerfa grade 1", 1, 150);
+	std::cout << PURPLE "create " RESET << form1 << std::endl;
+	std::cout << std::endl;
+
+	bur150.signForm(form150);
+	std::cout << form150 << std::endl;
+	std::cout << std::endl;
+
+	bur150.signForm(form1);
+	std::cout << form1 << std::endl;
+	std::cout << std::endl;
+
+	bur1.signForm(form150);
+	std::cout << form150 << std::endl;
+	std::cout << std::endl;
+
+	bur1.signForm(form1);
+	std::cout << form1 << std::endl;
+}
+
 int main()
 {
 	test_bureaucrat();
 	test_form();
-
+	test_signForm();
 	return (EXIT_SUCCESS);
 }

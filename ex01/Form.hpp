@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 21:05:46 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/14 23:26:24 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/15 20:08:24 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@
 # include <string>
 # include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
 	public:
 
-		Form(const std::string & name = "noName", bool isSigned = false,
+		Form(const std::string & name = "noName",
 				int gradeToSign = 150, int GradeToExecute = 150);
 		Form(const Form & toCopy);
 
