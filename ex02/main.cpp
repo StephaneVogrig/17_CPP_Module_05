@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:25 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/17 03:34:52 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/25 00:10:04 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <string>
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "utils.hpp"
 
 void test_constructor_bureaucrat(int grade)
@@ -138,10 +140,70 @@ void test_signForm(void)
 	// std::cout << form1 << std::endl;
 }
 
+void test_sign(const std::string & name, int grade, AForm * form)
+{
+	displaySubtest("sign form by " + name);
+	try
+	{
+		Bureaucrat bureaucrat = Bureaucrat(name, grade);
+		std::cout	<< PURPLE "create bureaucrat " RESET
+					<< bureaucrat << std::endl;
+		std::cout << bureaucrat << std::endl;
+		bureaucrat.signForm(*form);
+	}
+	catch (const std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}
+
+void test_execute(const std::string & name, int grade, AForm * form)
+{
+	displaySubtest("excute form by " + name);
+	try
+	{
+		Bureaucrat bureaucrat = Bureaucrat(name, grade);
+		std::cout	<< PURPLE "create bureaucrat " RESET
+					<< bureaucrat << std::endl;
+		bureaucrat.executeForm(*form);
+	}
+	catch (const std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}
+
+void test_shrubbery(void)
+{
+	displaySection("test shrubbery");
+
+	AForm * form = new ShrubberyCreationForm("home");
+	test_sign("junior", 150, form);
+	test_sign("senior", 1, form);
+	test_execute("junior", 150, form);
+	test_execute("senior", 1, form);
+
+	delete form;
+}
+
 int main()
 {
 	test_bureaucrat();
 	// test_form();
 	// test_signForm();
+	test_shrubbery();
+
+	Bureaucrat max("max", 1);
+
+	AForm * shrub = new ShrubberyCreationForm("home");
+	max.signForm(*shrub);
+	max.executeForm(*shrub);
+	delete shrub;
+
+	AForm * robotomy = new RobotomyRequestForm("42");
+	max.signForm(*robotomy);
+	max.executeForm(*robotomy);
+	delete robotomy;
+
 	return (EXIT_SUCCESS);
 }

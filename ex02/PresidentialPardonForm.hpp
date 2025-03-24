@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/17 00:28:34 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/25 00:03:23 by svogrig          ###   ########.fr       */
+/*   Created: 2025/03/24 23:09:40 by svogrig           #+#    #+#             */
+/*   Updated: 2025/03/24 23:10:46 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
 #include <fstream>
 #include "AForm.hpp"
 
-class ShrubberyCreationForm : public AForm
+class PresidentialPardonForm : public AForm
 {
 	public :
 
-		ShrubberyCreationForm(const std::string & target = "noTarget");
-		ShrubberyCreationForm(const ShrubberyCreationForm & toCopy);
+		PresidentialPardonForm(const std::string & target = "noTarget");
+		PresidentialPardonForm(const PresidentialPardonForm & toCopy);
 
-		~ShrubberyCreationForm(void);
+		~PresidentialPardonForm(void);
 
-		ShrubberyCreationForm & operator = (const ShrubberyCreationForm & toAssign);
+		PresidentialPardonForm & operator = (const PresidentialPardonForm & toAssign);
 
 	private:
 

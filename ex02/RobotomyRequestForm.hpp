@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/17 00:28:34 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/25 00:03:23 by svogrig          ###   ########.fr       */
+/*   Created: 2025/03/24 22:47:49 by svogrig           #+#    #+#             */
+/*   Updated: 2025/03/24 23:10:49 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
 #include <fstream>
 #include "AForm.hpp"
 
-class ShrubberyCreationForm : public AForm
+class RobotomyRequestForm : public AForm
 {
 	public :
 
-		ShrubberyCreationForm(const std::string & target = "noTarget");
-		ShrubberyCreationForm(const ShrubberyCreationForm & toCopy);
+		RobotomyRequestForm(const std::string & target = "noTarget");
+		RobotomyRequestForm(const RobotomyRequestForm & toCopy);
 
-		~ShrubberyCreationForm(void);
+		~RobotomyRequestForm(void);
 
-		ShrubberyCreationForm & operator = (const ShrubberyCreationForm & toAssign);
+		RobotomyRequestForm & operator = (const RobotomyRequestForm & toAssign);
 
 	private:
 

@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 18:47:50 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/24 17:22:50 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/25 00:07:47 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ void Bureaucrat::signForm(AForm & form) const
 					<< e.what() << '\n';
 	}
 }
+
 void Bureaucrat::executeForm(AForm & form) const
 {
 	try

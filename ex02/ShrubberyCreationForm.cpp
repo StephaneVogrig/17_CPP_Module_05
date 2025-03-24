@@ -6,14 +6,14 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 00:28:31 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/17 03:28:44 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/25 00:05:41 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string & target = "noTarget")
-						: AForm("Shrubbery creation", 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string & target)
+	: AForm("Shrubbery creation", 145, 137), _target(target)
 {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & toCopy)
@@ -27,25 +27,25 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 ShrubberyCreationForm & ShrubberyCreationForm::operator = (const ShrubberyCreationForm & toAssign)
 {
 	if (this == &toAssign)
-		return ;
+		return *this;
 	this->AForm::operator=(toAssign);
+	return *this;
 }
 
-void	ShrubberyCreationForm::execution(void) const
+void	ShrubberyCreationForm::execute(void) const
 {
-
-	std::ofstream ofs (	(_target + "shruberry") , std::ofstream::out);
+	std::ofstream ofs((_target + "_shruberry").c_str());
 
 	// https://asciiart.website/index.php?art=plants/trees
 
 	ofs << "           # #### ####               " << std::endl;
-	ofs << "         ### \/#|### |/####          " << std::endl;
-	ofs << "        ##\/#/ \||/##/_/##/_#        " << std::endl;
-	ofs << "      ###  \/###|/ \/ # ###          " << std::endl;
-	ofs << "     ##_\_#\_\## | #/###_/_####      " << std::endl;
-	ofs << "     ## #### # \ #| /  #### ##/##    " << std::endl;
+	ofs << "         ### \\/#|### |/####          " << std::endl;
+	ofs << "        ##\\/#/ \\||/##/_/##/_#        " << std::endl;
+	ofs << "      ###  \\/###|/ \\/ # ###          " << std::endl;
+	ofs << "     ##_\\_#\\_\\## | #/###_/_####      " << std::endl;
+	ofs << "     ## #### # \\ #| /  #### ##/##    " << std::endl;
 	ofs << "     __#_--###`  |{,###---###-~      " << std::endl;
-	ofs << "               \ }{                  " << std::endl;
+	ofs << "               \\ }{                  " << std::endl;
 	ofs << "                }}{                  " << std::endl;
 	ofs << "                }}{                  " << std::endl;
 	ofs << "           ejm  {{}                  " << std::endl;
@@ -54,5 +54,4 @@ void	ShrubberyCreationForm::execution(void) const
 	ofs << "                 {                   " << std::endl;
 
 	ofs.close();
-
 }

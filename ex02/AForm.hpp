@@ -26,7 +26,7 @@ class AForm
 				int gradeToSign = 150, int GradeToExecute = 150);
 		AForm(const AForm & toCopy);
 
-		~AForm(void);
+		virtual ~AForm(void);
 
 		AForm & operator = (const AForm & toAssign);
 
@@ -40,7 +40,7 @@ class AForm
 
 		void				beSigned(const Bureaucrat & bureaucrat);
 
-		virtual void		execute(Bureaucrat const & executor) const;
+		void				execute(Bureaucrat const & executor) const;
 
 		class GradeTooHighException : public std::range_error
 		{
@@ -69,7 +69,7 @@ class AForm
 
 		void checkGrade(int grade);
 
-		virtual void execution(void) const = 0;
+		virtual void execute(void) const = 0;
 
 };
 
