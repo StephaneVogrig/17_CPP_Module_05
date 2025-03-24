@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 18:47:50 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/16 17:09:13 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/17 12:51:14 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ void Bureaucrat::decrementGrade(void)
 
 void Bureaucrat::signForm(Form & form) const
 {
-	(void)form;
 	try
 	{
 		form.beSigned(*this);

@@ -106,5 +106,5 @@ AForm::GradeTooLowException::GradeTooLowException()
 {}
 
 AForm::FormNotSigned::FormNotSigned()
-			: runtime_error(RED "grade is too low" RESET)
+			: runtime_error(RED "form not" RESET)
 {}

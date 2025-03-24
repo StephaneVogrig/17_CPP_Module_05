@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 18:47:50 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/17 03:35:35 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/24 17:22:50 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ void Bureaucrat::decrementGrade(void)
 
 void Bureaucrat::signForm(AForm & form) const
 {
-	(void)form;
 	try
 	{
 		form.beSigned(*this);
@@ -93,6 +92,20 @@ void Bureaucrat::signForm(AForm & form) const
 		std::cerr	<< getName() << YELLOW " couldn’t sign " RESET
 					<< form.getName() << YELLOW " because " RESET
 					<< e.what() << '\n';
+	}
+}
+void Bureaucrat::executeForm(AForm & form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << *this << "executed" << form << std::endl;
+	}
+	catch(const std::runtime_error& e)
+	{
+		std::cout << *this << " not executed" << form
+					<< " because " << std::endl;
+		std::cerr << e.what() << '\n';
 	}
 }
 
