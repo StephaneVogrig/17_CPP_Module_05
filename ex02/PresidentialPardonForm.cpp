@@ -6,14 +6,14 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 23:09:51 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/24 23:13:47 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/25 00:45:52 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string & target)
-	: AForm("Shrubbery creation", 145, 137), _target(target)
+	: AForm("Presidential pardon", 25, 5), _target(target)
 {}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm & toCopy)

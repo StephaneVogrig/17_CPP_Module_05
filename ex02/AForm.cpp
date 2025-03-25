@@ -44,7 +44,7 @@ std::ostream & operator << (std::ostream & os, const AForm & Aform)
 {
 	os	<< Aform.getName() << ", " << (Aform.getIsSigned() ? "" : "not ")
 		<< "signed, grade to sign: " << Aform.getGradeToSign()
-		<< ", grade to execute: " << Aform.getGradeToSign();
+		<< ", grade to execute: " << Aform.getGradeToExecute();
 	return os;
 }
 
@@ -107,5 +107,5 @@ AForm::GradeTooLowException::GradeTooLowException()
 {}
 
 AForm::FormNotSigned::FormNotSigned()
-			: runtime_error(RED "form not" RESET)
+			: runtime_error(RED "form not signed" RESET)
 {}

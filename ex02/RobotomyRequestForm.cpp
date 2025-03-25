@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 22:51:59 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/24 23:11:01 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/25 00:45:43 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string & target)
-	: AForm("Shrubbery creation", 145, 137), _target(target)
+	: AForm("Robotomy request", 72, 45), _target(target)
 {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm & toCopy)

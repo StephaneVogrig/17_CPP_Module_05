@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 18:47:50 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/25 00:07:47 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/25 00:35:59 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,9 @@ void Bureaucrat::signForm(AForm & form) const
 	}
 	catch(const std::range_error& e)
 	{
-		std::cerr	<< getName() << YELLOW " couldn’t sign " RESET
+		std::cerr	<< getName() << RED " couldn’t sign " RESET
 					<< form.getName() << YELLOW " because " RESET
-					<< e.what() << '\n';
+					<< e.what() << std::endl;
 	}
 }
 
@@ -100,13 +100,13 @@ void Bureaucrat::executeForm(AForm & form) const
 	try
 	{
 		form.execute(*this);
-		std::cout << *this << "executed" << form << std::endl;
+		std::cout << *this << YELLOW " executed " RESET << form.getName() << std::endl;
 	}
 	catch(const std::runtime_error& e)
 	{
-		std::cout << *this << " not executed" << form
-					<< " because " << std::endl;
-		std::cerr << e.what() << '\n';
+		std::cout	<< *this << RED " not executed " RESET << form.getName()
+					<< YELLOW " because " RESET
+					<< e.what() << std::endl;
 	}
 }
 
