@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 01:58:33 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/26 03:07:38 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/26 04:30:39 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,17 @@ Intern & Intern::operator = (const Intern & toAssign)
 Intern::~Intern()
 {}
 
-static AForm * newShrubberyCreationForm(const std::string & target)
+AForm * Intern::newShrubberyCreationForm(const std::string & target)
 {
 	return new ShrubberyCreationForm(target);
 }
 
-static AForm * newRobotomyRequestForm(const std::string & target)
+AForm * Intern::newRobotomyRequestForm(const std::string & target)
 {
 	return new RobotomyRequestForm(target);
 }
 
-static AForm * newPresidentialPardonForm(const std::string & target)
+AForm * Intern::newPresidentialPardonForm(const std::string & target)
 {
 	return new PresidentialPardonForm(target);
 }
@@ -51,9 +51,9 @@ AForm * Intern::makeForm(const std::string & formName, const std::string & targe
 											ROBOTOMYREQUESTFORM_NAME,
 											PRESIDENTIALPARDONFORM_NAME};
 
-	static t_formptr newForm[] = {	newShrubberyCreationForm,
-									newRobotomyRequestForm,
-									newPresidentialPardonForm};
+	static t_formptr newForm[] = {	Intern::newShrubberyCreationForm,
+									Intern::newRobotomyRequestForm,
+									Intern::newPresidentialPardonForm};
 
 	for (size_t i = 0; i < sizeof(newForm) / sizeof(t_formptr); ++i)
 	{

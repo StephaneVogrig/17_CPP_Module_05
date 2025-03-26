@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:25 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/26 03:08:46 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/03/26 04:36:32 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,13 +124,13 @@ void test_intern(void)
 	Intern intern;
 	AForm * form;
 
-	displaySubtest("test create " ROBOTOMYREQUESTFORM_NAME);
-	form = intern.makeForm(ROBOTOMYREQUESTFORM_NAME, "home");
+	displaySubtest("test create " SHRUBBERYCREATIONFORM_NAME);
+	form = intern.makeForm(SHRUBBERYCREATIONFORM_NAME, "home");
 	std::cout << YELLOW "Form created : " RESET << *form << std::endl;
 	delete form;
 
 	displaySubtest("test create " PRESIDENTIALPARDONFORM_NAME);
-	form = intern.makeForm(PRESIDENTIALPARDONFORM_NAME, "home");
+	form = intern.makeForm(PRESIDENTIALPARDONFORM_NAME, "Gandalf");
 	std::cout << YELLOW "Form created : " RESET << *form << std::endl;
 	delete form;
 }
