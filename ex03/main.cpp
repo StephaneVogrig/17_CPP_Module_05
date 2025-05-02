@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:25 by svogrig           #+#    #+#             */
-/*   Updated: 2025/05/02 17:32:31 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/05/02 17:54:34 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,36 +109,57 @@ void test_execute(const std::string & name, int grade, AForm * form)
 
 void test_intern(void)
 {
-	displaySection("test Intern");
+	try
+	{
+		displaySection("test Intern");
 
-	Intern intern;
-	AForm * form;
+		Intern intern;
+		AForm * form;
+		Bureaucrat boss("Alice", 1);
 
-	displaySubtest("test create " ROBOTOMYREQUESTFORM_NAME);
-	form = intern.makeForm(ROBOTOMYREQUESTFORM_NAME, "Anonymous");
-	std::cout << YELLOW "Form created : " RESET << *form << std::endl;
-	delete form;
+		displaySubtest("test create " ROBOTOMYREQUESTFORM_NAME);
+		form = intern.makeForm(ROBOTOMYREQUESTFORM_NAME, "Anonymous");
+		std::cout << YELLOW "Form created : " RESET << *form << std::endl;
+		boss.signForm(*form);
+		form->execute(boss);
+		delete form;
 
-	displaySubtest("test create " SHRUBBERYCREATIONFORM_NAME);
-	form = intern.makeForm(SHRUBBERYCREATIONFORM_NAME, "home");
-	std::cout << YELLOW "Form created : " RESET << *form << std::endl;
-	delete form;
+		displaySubtest("test create " SHRUBBERYCREATIONFORM_NAME);
+		form = intern.makeForm(SHRUBBERYCREATIONFORM_NAME, "home");
+		std::cout << YELLOW "Form created : " RESET << *form << std::endl;
+		boss.signForm(*form);
+		form->execute(boss);
+		delete form;
 
-	displaySubtest("test create " PRESIDENTIALPARDONFORM_NAME);
-	form = intern.makeForm(PRESIDENTIALPARDONFORM_NAME, "Gandalf");
-	std::cout << YELLOW "Form created : " RESET << *form << std::endl;
-	delete form;
+		displaySubtest("test create " PRESIDENTIALPARDONFORM_NAME);
+		form = intern.makeForm(PRESIDENTIALPARDONFORM_NAME, "Gandalf");
+		std::cout << YELLOW "Form created : " RESET << *form << std::endl;
+		boss.signForm(*form);
+		form->execute(boss);
+		delete form;
+
+		displaySubtest("test create anotherform" );
+		form = intern.makeForm("anotherform", "Gandalf");
+		std::cout << YELLOW "Form created : " RESET << *form << std::endl;
+		boss.signForm(*form);
+		form->execute(boss);
+		delete form;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << RED << e.what() << RESET << '\n';
+	}
 
 	std::cout << std::endl;
 }
 
 int main()
 {
-	test_bureaucrat();
+	// test_bureaucrat();
 
-	test_form_derived<ShrubberyCreationForm>(SHRUBBERYCREATIONFORM_NAME);
-	test_form_derived<RobotomyRequestForm>(ROBOTOMYREQUESTFORM_NAME);
-	test_form_derived<PresidentialPardonForm>(PRESIDENTIALPARDONFORM_NAME);
+	// test_form_derived<ShrubberyCreationForm>(SHRUBBERYCREATIONFORM_NAME);
+	// test_form_derived<RobotomyRequestForm>(ROBOTOMYREQUESTFORM_NAME);
+	// test_form_derived<PresidentialPardonForm>(PRESIDENTIALPARDONFORM_NAME);
 
 	test_intern();
 
