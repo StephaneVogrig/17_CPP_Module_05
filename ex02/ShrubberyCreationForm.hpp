@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 00:28:34 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/25 00:03:23 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/05/02 11:02:24 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class ShrubberyCreationForm : public AForm
 
 	private:
 
-		const std::string _target;
+		std::string _target;
 
 		void execute(void) const;
 

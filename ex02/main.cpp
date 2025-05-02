@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:25 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/25 00:43:52 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/05/02 11:10:23 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,8 @@ void test_execute(const std::string & name, int grade, AForm * form)
 int main()
 {
 	test_bureaucrat();
-	test_form_derived<ShrubberyCreationForm>("Presidential");
-	test_form_derived<RobotomyRequestForm>("Presidential");
-	test_form_derived<PresidentialPardonForm>("Presidential");
+	test_form_derived<ShrubberyCreationForm>("Shrubbery Creation");
+	test_form_derived<RobotomyRequestForm>("Robotomy Request");
+	test_form_derived<PresidentialPardonForm>("Presidential Pardon");
 	return (EXIT_SUCCESS);
 }

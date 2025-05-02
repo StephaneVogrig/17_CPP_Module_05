@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 22:47:49 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/24 23:10:49 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/05/02 11:02:31 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class RobotomyRequestForm : public AForm
 
 	private:
 
-		const std::string _target;
+		std::string _target;
 
 		void execute(void) const;
 

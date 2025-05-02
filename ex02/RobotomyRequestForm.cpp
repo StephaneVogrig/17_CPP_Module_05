@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 22:51:59 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/25 00:45:43 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/05/02 11:08:11 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string & target)
 {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm & toCopy)
-{
-	*this = toCopy;
-}
+	: AForm(toCopy), _target(toCopy._target)
+{}
 
 RobotomyRequestForm::~RobotomyRequestForm(void)
 {}
@@ -30,6 +29,7 @@ RobotomyRequestForm & RobotomyRequestForm::operator = (const RobotomyRequestForm
 	if (this == &toAssign)
 		return *this;
 	this->AForm::operator=(toAssign);
+	_target = toAssign._target;
 	return *this;
 }
 
