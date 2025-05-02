@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:59:18 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/16 17:10:34 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/05/02 08:02:57 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ class Bureaucrat
 		const std::string &	getName(void) const;
 		int					getGrade(void) const;
 
-		void				setGrade(int grade);
-
 		void				incrementGrade(void);
 		void				decrementGrade(void);
 
@@ -50,6 +48,8 @@ class Bureaucrat
 	private:
 		const std::string	_name;
 		unsigned int		_grade;
+
+		void				setGrade(int grade);
 
 };
 
