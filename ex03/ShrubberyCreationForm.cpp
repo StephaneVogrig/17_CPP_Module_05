@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 00:28:31 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/25 13:26:10 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/05/02 17:35:35 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string & target)
 {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & toCopy)
-{
-	*this = toCopy;
-}
+	: AForm(toCopy), _target(toCopy._target)
+{}
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void)
 {}
@@ -29,6 +28,7 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator = (const ShrubberyCreati
 	if (this == &toAssign)
 		return *this;
 	this->AForm::operator=(toAssign);
+	_target = toAssign._target;
 	return *this;
 }
 
@@ -37,6 +37,7 @@ void	ShrubberyCreationForm::execute(void) const
 	std::ofstream ofs((_target + "_shruberry").c_str());
 
 	// https://asciiart.website/index.php?art=plants/trees
+	ofs << "" << std::endl;
 
 	ofs << "           # #### ####               " << std::endl;
 	ofs << "         ### \\/#|### |/####          " << std::endl;
@@ -52,6 +53,21 @@ void	ShrubberyCreationForm::execute(void) const
 	ofs << "          , -=-~{ .-^- _             " << std::endl;
 	ofs << "                `}                   " << std::endl;
 	ofs << "                 {                   " << std::endl;
+
+	ofs << "" << std::endl;
+
+	ofs << "       	%%%,%%%%%%%             " << std::endl;
+	ofs << "       	,'%% \\\\-*%%%%%%%        " << std::endl;
+	ofs << "       ;%%%%%*%   _%%%%\"           " << std::endl;
+	ofs << "       ,%%%       \\(_.*%%%%.       " << std::endl;
+	ofs << "       % *%%, ,%%%%*(    '         " << std::endl;
+	ofs << "       %^     ,*%%% )\\|,%%*%,_     " << std::endl;
+	ofs << "         *%    \\/ #).-\"*%%*        " << std::endl;
+	ofs << "       	  _.) ,/ *%,            " << std::endl;
+	ofs << "       _________/)#(_____________  " << std::endl;
+	ofs << "       b'ger                       " << std::endl;
+
+	ofs << "" << std::endl;
 
 	ofs.close();
 }

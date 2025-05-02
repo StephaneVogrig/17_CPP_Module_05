@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 23:09:40 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/26 02:36:25 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/05/02 17:07:17 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class PresidentialPardonForm : public AForm
 
 	private:
 
-		const std::string _target;
+		std::string _target;
 
 		void execute(void) const;
 

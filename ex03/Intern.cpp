@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 01:58:33 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/26 04:30:39 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/05/02 17:01:44 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,40 +30,47 @@ Intern & Intern::operator = (const Intern & toAssign)
 Intern::~Intern()
 {}
 
-AForm * Intern::newShrubberyCreationForm(const std::string & target)
+AForm * Intern::newShrubberyCreationForm(const std::string & target) const
 {
 	return new ShrubberyCreationForm(target);
 }
 
-AForm * Intern::newRobotomyRequestForm(const std::string & target)
+AForm * Intern::newRobotomyRequestForm(const std::string & target) const
 {
 	return new RobotomyRequestForm(target);
 }
 
-AForm * Intern::newPresidentialPardonForm(const std::string & target)
+AForm * Intern::newPresidentialPardonForm(const std::string & target) const
 {
 	return new PresidentialPardonForm(target);
 }
 
-AForm * Intern::makeForm(const std::string & formName, const std::string & target)
+AForm * Intern::makeForm(const std::string & formName, const std::string & target) const
 {
-	static const std::string _formName[] = {SHRUBBERYCREATIONFORM_NAME,
+
+	static const std::string formNames[] = {SHRUBBERYCREATIONFORM_NAME,
 											ROBOTOMYREQUESTFORM_NAME,
 											PRESIDENTIALPARDONFORM_NAME};
 
-	static t_formptr newForm[] = {	Intern::newShrubberyCreationForm,
-									Intern::newRobotomyRequestForm,
-									Intern::newPresidentialPardonForm};
+	typedef AForm * (Intern::*t_formptr)(const std::string &) const;
 
-	for (size_t i = 0; i < sizeof(newForm) / sizeof(t_formptr); ++i)
+	static const t_formptr formTypes[] = {	&Intern::newShrubberyCreationForm,
+											&Intern::newRobotomyRequestForm,
+											&Intern::newPresidentialPardonForm};
+
+	for (size_t i = 0; i < sizeof(formTypes) / sizeof(t_formptr); ++i)
 	{
-		if (_formName[i] == formName)
+		if (formNames[i] == formName)
 		{
-			AForm * form = newForm[i](target);
-			std::cerr << YELLOW "Intern create: " RESET << *form << std::endl;
+			AForm * form = (this->*formTypes[i])(target);
+			std::cout << YELLOW "Intern create: " RESET << *form << std::endl;
 			return form;
 		}
 	}
-	std::cerr << "Error: " << formName << " doesn't exist" << std::endl;
-	return NULL;
+	throw FormNotFound();
+}
+
+const char * Intern::FormNotFound::what() const throw()
+{
+	return "Intern: form not found";
 }

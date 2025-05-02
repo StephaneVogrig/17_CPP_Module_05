@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 23:09:51 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/25 13:24:18 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/05/02 17:06:01 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string & target)
 {}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm & toCopy)
-{
-	*this = toCopy;
-}
+	: AForm(toCopy), _target(toCopy._target)
+{}
 
 PresidentialPardonForm::~PresidentialPardonForm(void)
 {}
@@ -29,6 +28,7 @@ PresidentialPardonForm & PresidentialPardonForm::operator = (const PresidentialP
 	if (this == &toAssign)
 		return *this;
 	this->AForm::operator=(toAssign);
+	_target = toAssign._target;
 	return *this;
 }
 

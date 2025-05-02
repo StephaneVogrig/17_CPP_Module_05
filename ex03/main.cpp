@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:25 by svogrig           #+#    #+#             */
-/*   Updated: 2025/03/26 04:36:32 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/05/02 17:32:31 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,19 +110,14 @@ void test_execute(const std::string & name, int grade, AForm * form)
 void test_intern(void)
 {
 	displaySection("test Intern");
-	displaySubtest("subject test");
-	{
-		Intern	someRandomIntern;
-		AForm*	rrf;
-	
-		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-		std::cout << std::endl;
-		std::cout << YELLOW "Form created : " RESET << *rrf << std::endl;
-		delete rrf;
-	}
 
 	Intern intern;
 	AForm * form;
+
+	displaySubtest("test create " ROBOTOMYREQUESTFORM_NAME);
+	form = intern.makeForm(ROBOTOMYREQUESTFORM_NAME, "Anonymous");
+	std::cout << YELLOW "Form created : " RESET << *form << std::endl;
+	delete form;
 
 	displaySubtest("test create " SHRUBBERYCREATIONFORM_NAME);
 	form = intern.makeForm(SHRUBBERYCREATIONFORM_NAME, "home");
@@ -133,14 +128,19 @@ void test_intern(void)
 	form = intern.makeForm(PRESIDENTIALPARDONFORM_NAME, "Gandalf");
 	std::cout << YELLOW "Form created : " RESET << *form << std::endl;
 	delete form;
+
+	std::cout << std::endl;
 }
 
 int main()
 {
 	test_bureaucrat();
+
 	test_form_derived<ShrubberyCreationForm>(SHRUBBERYCREATIONFORM_NAME);
 	test_form_derived<RobotomyRequestForm>(ROBOTOMYREQUESTFORM_NAME);
 	test_form_derived<PresidentialPardonForm>(PRESIDENTIALPARDONFORM_NAME);
+
 	test_intern();
+
 	return (EXIT_SUCCESS);
 }
